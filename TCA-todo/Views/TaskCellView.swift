@@ -22,7 +22,7 @@ struct TaskCellView: View {
                         .symbolRenderingMode(.hierarchical)
                         .foregroundStyle(store.isCompleted ? Color.accentColor : .secondary)
                     
-                    Text(store.name)
+                    Text(store.name ?? "Shuffle todo...")
                         .font(.headline)
                         .strikethrough(store.isCompleted)
                         .foregroundStyle(store.isCompleted ? .secondary : .primary)
@@ -31,12 +31,18 @@ struct TaskCellView: View {
                 .background(.background.opacity(0.01))
             }
             .buttonStyle(.plain)
+
             
-            Button {
-                
-            } label: {
-                Image(systemName: "chevron.forward")
-                    .foregroundStyle(.secondary)
+            if store.isLoading {
+                ProgressView()
+            } else {
+                Button {
+                    store.send(.randomTitleButtonTapped)
+                } label: {
+                    Image(systemName: "shuffle")
+                        .foregroundStyle(.secondary)
+                }
+                .disabled(store.isLoading)
             }
         }
         .padding()
@@ -46,7 +52,7 @@ struct TaskCellView: View {
 
 
 #Preview {
-    TaskCellView(store: Store(initialState: TaskFeature.State(name: "")) {
+    TaskCellView(store: Store(initialState: TaskFeature.State()) {
         TaskFeature()
     })
     .padding()
