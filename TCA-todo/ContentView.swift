@@ -5,15 +5,16 @@
 //  Created by Kuba on 11/11/24.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            TaskCellView(store: Store(initialState: TaskFeature.State(name: "bla"), reducer: {
+                TaskFeature()
+                    ._printChanges()
+            }))
         }
         .padding()
     }
