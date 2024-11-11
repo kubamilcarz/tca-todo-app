@@ -14,13 +14,20 @@ struct TaskFeature {
         var isCompleted = false
         var name: String?
         var isLoading = false
+        var count = 0
+        var isTimerRunning = false
     }
     
     enum Action {
         case toggleCompleted
         case randomTitleButtonTapped
         case randomTitleResponse(String)
+        case timerTick
+        case timerStopped
+        case toggleTimerButtonTapped
     }
+    
+    enum CancelID { case timer }
     
     
     var body: some ReducerOf<Self> {
@@ -44,6 +51,29 @@ struct TaskFeature {
                 state.name = name
                 state.isLoading = false
                 return .none
+            case .timerTick:
+                state.count += 1
+                return .none
+            case .timerStopped:
+                state.count = 0
+                state.isTimerRunning = false
+                return .none
+            case .toggleTimerButtonTapped:
+                state.isTimerRunning.toggle()
+                if state.isTimerRunning {
+                    return .run { send in
+                        while true {
+                            try await Task.sleep(for: .seconds(1))
+                            await send(.timerTick)
+                        }
+                    }
+                    .cancellable(id: CancelID.timer)
+                } else {
+                    return .cancel(id: CancelID.timer).merge(
+                        with: .run { send in
+                            await send(.timerStopped)
+                    })
+                }
             }
         }
     }
