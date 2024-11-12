@@ -10,14 +10,44 @@
 		C84B9D5B2CE29BC800343A3D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C84B9D5A2CE29BC800343A3D /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C8D7D4B22CE3C5B400443E59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C84B9D3F2CE29B4300343A3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C84B9D462CE29B4300343A3D;
+			remoteInfo = "TCA-todo";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		C84B9D472CE29B4300343A3D /* TCA-todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TCA-todo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8D7D4AE2CE3C5B400443E59 /* TCAtodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCAtodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C8D7D4B82CE3C62300443E59 /* Exceptions for "TCA-todo" folder in "TCAtodoTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Clients/TaskTitleClient.swift,
+				Features/TaskFeature.swift,
+			);
+			target = C8D7D4AD2CE3C5B400443E59 /* TCAtodoTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C84B9D492CE29B4400343A3D /* TCA-todo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C8D7D4B82CE3C62300443E59 /* Exceptions for "TCA-todo" folder in "TCAtodoTests" target */,
+			);
 			path = "TCA-todo";
+			sourceTree = "<group>";
+		};
+		C8D7D4AF2CE3C5B400443E59 /* TCAtodoTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TCAtodoTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -31,6 +61,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C8D7D4AB2CE3C5B400443E59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -38,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				C84B9D492CE29B4400343A3D /* TCA-todo */,
+				C8D7D4AF2CE3C5B400443E59 /* TCAtodoTests */,
 				C84B9D5E2CE29C2700343A3D /* Frameworks */,
 				C84B9D482CE29B4400343A3D /* Products */,
 			);
@@ -47,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				C84B9D472CE29B4300343A3D /* TCA-todo.app */,
+				C8D7D4AE2CE3C5B400443E59 /* TCAtodoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +123,29 @@
 			productReference = C84B9D472CE29B4300343A3D /* TCA-todo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C8D7D4AD2CE3C5B400443E59 /* TCAtodoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8D7D4B42CE3C5B400443E59 /* Build configuration list for PBXNativeTarget "TCAtodoTests" */;
+			buildPhases = (
+				C8D7D4AA2CE3C5B400443E59 /* Sources */,
+				C8D7D4AB2CE3C5B400443E59 /* Frameworks */,
+				C8D7D4AC2CE3C5B400443E59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8D7D4B32CE3C5B400443E59 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C8D7D4AF2CE3C5B400443E59 /* TCAtodoTests */,
+			);
+			name = TCAtodoTests;
+			packageProductDependencies = (
+			);
+			productName = TCAtodoTests;
+			productReference = C8D7D4AE2CE3C5B400443E59 /* TCAtodoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -91,11 +153,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1610;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					C84B9D462CE29B4300343A3D = {
 						CreatedOnToolsVersion = 16.1;
+					};
+					C8D7D4AD2CE3C5B400443E59 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = C84B9D462CE29B4300343A3D;
 					};
 				};
 			};
@@ -117,12 +183,20 @@
 			projectRoot = "";
 			targets = (
 				C84B9D462CE29B4300343A3D /* TCA-todo */,
+				C8D7D4AD2CE3C5B400443E59 /* TCAtodoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C84B9D452CE29B4300343A3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8D7D4AC2CE3C5B400443E59 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -139,7 +213,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C8D7D4AA2CE3C5B400443E59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8D7D4B32CE3C5B400443E59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C84B9D462CE29B4300343A3D /* TCA-todo */;
+			targetProxy = C8D7D4B22CE3C5B400443E59 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C84B9D532CE29B4500343A3D /* Debug */ = {
@@ -277,6 +366,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,6 +396,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,6 +407,44 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C8D7D4B52CE3C5B400443E59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7AGNJTPT6V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kubamilcarz.TCAtodoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCA-todo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TCA-todo";
+			};
+			name = Debug;
+		};
+		C8D7D4B62CE3C5B400443E59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7AGNJTPT6V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kubamilcarz.TCAtodoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCA-todo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TCA-todo";
 			};
 			name = Release;
 		};
@@ -336,6 +465,15 @@
 			buildConfigurations = (
 				C84B9D562CE29B4500343A3D /* Debug */,
 				C84B9D572CE29B4500343A3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8D7D4B42CE3C5B400443E59 /* Build configuration list for PBXNativeTarget "TCAtodoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8D7D4B52CE3C5B400443E59 /* Debug */,
+				C8D7D4B62CE3C5B400443E59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -10,7 +10,7 @@ import ComposableArchitecture
 @Reducer
 struct TaskFeature {
     
-    @ObservableState struct State {
+    @ObservableState struct State: Equatable {
         var isCompleted = false
         var name: String?
         var isLoading = false
@@ -29,6 +29,8 @@ struct TaskFeature {
     
     enum CancelID { case timer }
     
+    @Dependency(\.continuousClock) var clock
+    @Dependency(\.taskTitle) var taskTitle
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
@@ -41,11 +43,8 @@ struct TaskFeature {
                 state.name = nil
 
                 return .run { send in
-                    // perform network fetching of a title
-                    try? await Task.sleep(for: .seconds(2))
-                    
-                    let randomName = ["Random todo", "Clean bedroom", "Throw out trash", "Organize desk"].shuffled().first!
-                    await send(.randomTitleResponse(randomName))
+                    let randomIndex = Int.random(in: 0...3)
+                    try await send(.randomTitleResponse(self.taskTitle.fetch(randomIndex)))
                 }
             case let .randomTitleResponse(name):
                 state.name = name
@@ -62,8 +61,7 @@ struct TaskFeature {
                 state.isTimerRunning.toggle()
                 if state.isTimerRunning {
                     return .run { send in
-                        while true {
-                            try await Task.sleep(for: .seconds(1))
+                        for await _ in self.clock.timer(interval: .seconds(1)) {
                             await send(.timerTick)
                         }
                     }
