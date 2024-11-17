@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContactsView: View {
     
-    let store: StoreOf<ContactsFeature>
+    @Bindable var store: StoreOf<ContactsFeature>
     
     var body: some View {
         NavigationStack {
@@ -24,6 +24,11 @@ struct ContactsView: View {
                 Button("Add", systemImage: "plus") {
                     store.send(.addButtonTapped)
                 }
+            }
+            .sheet(item: $store.scope(state: \.addContact, action: \.addContact)) { addContactStore in
+              NavigationStack {
+                AddContactView(store: addContactStore)
+              }
             }
         }
     }
