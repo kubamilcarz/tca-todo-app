@@ -30,7 +30,9 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Clients/TaskTitleClient.swift,
+				Features/AddContactFeature.swift,
 				Features/AppFeature.swift,
+				Features/ContactsFeature.swift,
 				Features/TaskFeature.swift,
 			);
 			target = C8D7D4AD2CE3C5B400443E59 /* TCAtodoTests */;
